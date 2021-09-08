@@ -4,9 +4,9 @@
 
     define("SECRET_APP", "JeanMarcEstUnLorrain");
 
-    define("DB_HOST", "");
-    define("DB_NAME", "");
-    define("DB_USER", "");
+    define("DB_HOST", "localhost:3306");
+    define("DB_NAME", "utilisateur");
+    define("DB_USER", "root");
     define("DB_PASS", "");
 
     define("DEFAULT_CTRL", "home");
