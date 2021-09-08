@@ -1,3 +1,6 @@
+<?php
+    use App\Service\Session;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,10 +14,15 @@
     
     <nav>
         <a href="">Accueil</a>
-        <a href="">Forum</a>
-        <a href="">Connexion</a>
-        <a href="">Inscription</a>
-        <a href="">Déconnexion</a>
+        <?php
+        if(Session::getUser()){
+            ?>
+            <a href="">Déconnexion</a>
+        <?php } else {
+            ?>
+            <a href="">Connexion</a>
+            <a href="">Inscription</a>
+        <?php } ?>
     </nav>
 
     <?= $content ?>

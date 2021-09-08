@@ -2,10 +2,10 @@
     date_default_timezone_set('Europe/Paris');
     Locale::setDefault('fr_FR.utf-8');
 
-    define("SECRET_APP", "JeanMarcEstUnLorrain");
+    define("SECRET_APP", "ChritopheEtPierre");
 
     define("DB_HOST", "localhost:3306");
-    define("DB_NAME", "utilisateur");
+    define("DB_NAME", "forum");
     define("DB_USER", "root");
     define("DB_PASS", "");
 

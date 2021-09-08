@@ -36,6 +36,10 @@
                 if(isset($_GET["action"]) && method_exists($ctrlFQCN, $_GET['action'])){
                     //l'action à executer est celle de l'URL
                     $action = $_GET['action'];
+
+                    if(isset($_GET["id"])){
+                        $id = $_GET["id"];
+                    }
                     //@TODO : action inconnue = 404.php
                 }
                

@@ -11,4 +11,48 @@ class Sujet extends AbstractEntity{
     private $categorie;
     private $utilisateur;
 
+    public function __construct($data){
+        parent::hydrate($data, $this);
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getTitre(){
+        return $this->titre;
+    }
+
+    public function setTitre($titre){
+        $this->titre = $titre;
+    }
+
+    public function getCreatedAt(){
+        return parent::formatDate($this->createdAt);
+    }
+
+    public function setCreatedAt($createdAt){
+        $this->createdAt = $createdAt;
+    }
+    
+ 
+    public function getCategorie(){
+        return $this->categorie;
+    }
+
+    public function setCategorie($categorie){
+        $this->categorie = $categorie;
+    }
+
+    public function getUtilisateur(){
+        return $this->utilisateur;
+    }
+ 
+    public function setUtilisateur($utilisateur){
+        $this->utilisateur = $utilisateur;
+    }
 }
