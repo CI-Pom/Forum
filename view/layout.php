@@ -13,7 +13,7 @@
 <body>
     
     <nav>
-        <a href="">Accueil</a>
+        <a href="?ctrl=home&action=listCategories">Accueil</a>
         <?php
         if(Session::getUser()){
             ?>

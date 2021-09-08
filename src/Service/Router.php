@@ -13,6 +13,7 @@
 
             $ctrl = DEFAULT_CTRL;//home par défaut
             $action = DEFAULT_ACTION;//action "index" par défaut
+            $id = "";
             
             //ya t il un param ctrl dans l'URL ? Si y a pas
             if(isset($_GET["ctrl"])){
@@ -48,7 +49,7 @@
             $controller = new $ctrlFQCN();
             //la response à traiter sera le retour de l'appel de la méthode du controller
             //$response = HomeController->index()
-            return $controller->$action();
+            return $controller->$action($id);
         }
 
         public static function redirect($route)

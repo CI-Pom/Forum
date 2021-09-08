@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Model\Manager;
 
 use App\Service\AbstractManager;
 

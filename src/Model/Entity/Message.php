@@ -49,7 +49,12 @@ class Message extends AbstractEntity{
     }
  
     public function getUtilisateur(){
-        return $this->utilisateur;
+        if ($this->utilisateur != null) {
+            return $this->utilisateur;
+        }
+        else{
+            return "Utilisateur inconnu";
+        }
     }
 
     public function setUtilisateur($utilisateur){

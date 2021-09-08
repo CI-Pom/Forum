@@ -3,7 +3,9 @@
     $sujets = $response["data"]["sujets"];
 ?>
 
-<h1><?= $categorie->getTitre ?></h1>
+<h1><?= $categorie->getTitre() ?></h1>
+
+
 
 <div>
     <table>
@@ -25,6 +27,5 @@
             <?php }
             ?>
         </tbody>
-
     </table>
 </div>

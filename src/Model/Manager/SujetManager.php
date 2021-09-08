@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Model\Manager;
 
 use App\Service\AbstractManager;
 
@@ -30,7 +30,7 @@ class SujetManager extends AbstractManager{
     public function findSujetsByCategorie($id){
         return $this->getResults(
             "App\Model\Entity\Sujet",
-            "SELECT id, titre, createdAt, utilisateur_id
+            "SELECT id, titre, createdAt, utilisateur_id, categorie_id
             FROM sujet
             WHERE categorie_id = :id
             ORDER BY createdAt ASC",
