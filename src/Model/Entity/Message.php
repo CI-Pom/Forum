@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use App\Service\AbstractEntity;
+use DateTime;
 
 class Message extends AbstractEntity{
 
@@ -36,8 +37,8 @@ class Message extends AbstractEntity{
         return parent::formatDate($this->createdAt);
     }
 
-    public function setCreatedAt($createdAt){
-        $this->createdAt = $createdAt;
+    public function setCreatedAt($date){
+        $this->createdAt = new \DateTime($date);
     }
     
     public function getSujet(){

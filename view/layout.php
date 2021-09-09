@@ -11,19 +11,35 @@
     <title>Exo Forum</title>
 </head>
 <body>
-    
-    <nav>
-        <a href="?ctrl=home&action=listCategories">Accueil</a>
+    <header>
+        <nav>
+            <a href="index.php">Accueil</a>
+            <a href="?ctrl=home&action=listCategories">Forum</a>
+            <?php
+            if(Session::getUser()){
+                ?>
+                <a href="?ctrl=security&action=logout">Déconnexion</a>
+            <?php } else {
+                ?>
+                <a href="?ctrl=security&action=login">Connexion</a>
+                <a href="?ctrl=security&action=register">Inscription</a>
+            <?php } ?>
+        </nav>
+    </header>
+    <section>
         <?php
-        if(Session::getUser()){
-            ?>
-            <a href="">Déconnexion</a>
-        <?php } else {
-            ?>
-            <a href="">Connexion</a>
-            <a href="">Inscription</a>
-        <?php } ?>
-    </nav>
+            foreach(Session::getMessages("success") as $message){
+                ?>
+                <div><?= "SUCCESS : ".$message ?></div>
+                <?php
+            }
+            foreach(Session::getMessages("error") as $message){
+                ?>
+                <div><?= "ERROR : ".$message ?></div>
+                <?php
+            }
+        ?>
+    </section>
 
     <?= $content ?>
     

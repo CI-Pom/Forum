@@ -68,7 +68,6 @@
 
         public static function CSRFProtection(){
             
-
             if(!empty($_POST) && isset($_POST["csrf_token"])){
                 if(!hash_equals($_POST["csrf_token"], $_COOKIE["CSRF_KEY"])){
                     session_destroy();

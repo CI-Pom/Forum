@@ -28,8 +28,8 @@ abstract class AbstractEntity
     {
         $formatter = \IntlDateFormatter::create(
             \Locale::getDefault(),
-            \IntlDateFormatter::FULL,
-            \IntlDateFormatter::NONE,
+            \IntlDateFormatter::SHORT,
+            \IntlDateFormatter::SHORT
         );
         return $formatter->format($date);
     }

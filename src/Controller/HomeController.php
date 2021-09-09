@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Model\Manager\CategorieManager;
+use App\Model\Manager\MessageManager;
 use App\Model\Manager\SujetManager;
 use App\Service\AbstractController;
 
@@ -10,6 +11,7 @@ class HomeController extends AbstractController
     public function __construct(){
         $this->categorieManager = new CategorieManager();
         $this->sujetManager = new SujetManager();
+        $this->messageManager = new MessageManager;
     }
     
     public function index(): array
@@ -20,7 +22,7 @@ class HomeController extends AbstractController
     public function listCategories(){
         $categories = $this->categorieManager->findAll();
 
-        return $this->render("home/home.php",
+        return $this->render("home/forum.php",
             ["categories" => $categories]
         );
     }
@@ -32,6 +34,16 @@ class HomeController extends AbstractController
         return $this->render("home/categorie.php",
             ["categorie" => $categorie,   
             "sujets" => $sujets]
+        );
+    }
+
+    public function detailsSujet($id){
+        $sujet = $this->sujetManager->findOneById($id);
+        $messages = $this->messageManager->findMessagesBySujet($id);
+
+        return $this->render("home/sujet.php",
+            ["sujet" => $sujet,
+            "messages" => $messages]
         );
     }
 }

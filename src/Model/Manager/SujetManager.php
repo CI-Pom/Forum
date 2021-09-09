@@ -38,4 +38,15 @@ class SujetManager extends AbstractManager{
         );
     }
 
+    public function insertSujet($titre, $id, $utilisateur){
+        return $this->executeQuery(
+            "INSERT INTO sujet (titre, categorie_id, utilisateur_id)
+            VALUES (:titre, :categorie, :utilisateur)",
+            [
+                ":titre" => $titre,
+                ":categorie" => $id,
+                ":utilisateur" => $utilisateur
+            ]
+        );
+    }
 }
