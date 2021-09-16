@@ -11,8 +11,11 @@ class CategorieManager extends AbstractManager{
     public function findAll(){
         return $this->getResults(
             "App\Model\Entity\Categorie",
-            "SELECT id, titre
-            FROM categorie"
+            "SELECT c.id, c.titre, COUNT(s.id) AS nbsujets
+            FROM categorie c
+            LEFT JOIN sujet s
+            ON s.categorie_id = c.id
+            GROUP BY c.id"
         );
     }
 
@@ -23,6 +26,14 @@ class CategorieManager extends AbstractManager{
             FROM categorie
             WHERE id = :id",
             ["id" => $id]
+        );
+    }
+
+    public function insertCategorie($titre){
+        return $this->executeQuery(
+            "INSERT INTO categorie (titre)
+            VALUES (:titre)",
+            [":titre" => $titre]
         );
     }
 }

@@ -11,7 +11,7 @@ class UtilisateurManager extends AbstractManager{
     public function findAll(){
         return $this->getResults(
             "App\Model\Entity\Utilisateur",
-            "SELECT id, username, createdAt
+            "SELECT id, username, email, createdAt, role, biographie
             FROM utilisateur"
         );
     }
@@ -19,7 +19,7 @@ class UtilisateurManager extends AbstractManager{
     public function findOneById($id){
         return $this->getOneOrNullResult(
             "App\Model\Entity\Utilisateur",
-            "SELECT id, username, createdAt, role
+            "SELECT id, username, email, createdAt, role, biographie
             FROM utilisateur
             WHERE id = :id",
             ["id" => $id]
@@ -69,6 +69,39 @@ class UtilisateurManager extends AbstractManager{
                 ":username"   => $username, 
                 ":password" => $password
             ]
+        );
+    }
+
+    public function updateRole($id, $role){
+        return $this->executeQuery(
+            "UPDATE utilisateur
+            SET role = :role
+            WHERE id = :id",
+            [
+                ":id" => $id,
+                ":role" => $role
+            ]);
+    }
+
+    public function updateUtilisateur($id, $username, $email, $biographie){
+        return $this->executeQuery(
+            "UPDATE utilisateur 
+            SET username = :username, email = :email, biographie = :biographie
+            WHERE id = :id",
+            [
+                ":id" => $id,
+                ":username" => $username,
+                ":email" => $email,
+                ":biographie" => $biographie
+            ]
+        );
+    }
+
+    public function deleteUtilisateur($id){
+        return $this->executeQuery(
+            "DELETE FROM utilisateur
+            WHERE id = :id",
+            [ ":id" => $id]
         );
     }
 }

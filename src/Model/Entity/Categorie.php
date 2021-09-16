@@ -7,6 +7,7 @@ class Categorie extends AbstractEntity{
 
     private $id;
     private $titre;
+    private $nbSujets;
 
     public function __construct($data){
         parent::hydrate($data, $this);
@@ -26,5 +27,14 @@ class Categorie extends AbstractEntity{
 
     public function setTitre($titre){
         $this->titre = $titre;
+    }
+
+    public function getNbSujets(){
+        return $this->nbSujets;
+    }
+
+    public function setNbSujets($nbSujets){
+        $this->nbSujets = $nbSujets;
+        return $this;
     }
 }

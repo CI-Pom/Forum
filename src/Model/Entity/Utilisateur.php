@@ -8,9 +8,9 @@ class Utilisateur extends AbstractEntity{
     private $id;
     private $username;
     private $email;
-    private $password;
     private $createdAt;
     private $role;
+    private $biographie;
 
     
     public function __construct($data){
@@ -41,20 +41,12 @@ class Utilisateur extends AbstractEntity{
         $this->email = $email;
     }
 
-    public function getPassword(){
-        return $this->password;
-    }
-
-    public function setPassword($password){
-        $this->password = $password;
-    }
-
     public function getCreatedAt(){
         return parent::formatDate($this->createdAt);
     }
 
     public function setCreatedAt($createdAt){
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime($createdAt);
     }
 
     public function getRole(){
@@ -70,5 +62,14 @@ class Utilisateur extends AbstractEntity{
 
     public function __toString(){
         return $this->username;
+    }
+
+    public function getBiographie(){
+        return $this->biographie;
+    }
+
+    public function setBiographie($biographie){
+        $this->biographie = $biographie;
+        return $this;
     }
 }

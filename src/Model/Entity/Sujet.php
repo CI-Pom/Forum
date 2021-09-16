@@ -2,7 +2,7 @@
 namespace App\Model\Entity;
 
 use App\Service\AbstractEntity;
-use DateTime;
+
 
 class Sujet extends AbstractEntity{
 
@@ -11,6 +11,8 @@ class Sujet extends AbstractEntity{
     private $createdAt;
     private $categorie;
     private $utilisateur;
+    private $locked;
+    private $nbMessages;
 
     public function __construct($data){
         parent::hydrate($data, $this);
@@ -36,8 +38,8 @@ class Sujet extends AbstractEntity{
         return parent::formatDate($this->createdAt);
     }
 
-    public function setCreatedAt($date){
-        $this->createdAt = new \DateTime($date);
+    public function setCreatedAt($createdAt){
+        $this->createdAt = new \DateTime($createdAt);
     }
     
  
@@ -61,4 +63,26 @@ class Sujet extends AbstractEntity{
     public function setUtilisateur($utilisateur){
         $this->utilisateur = $utilisateur;
     }
+
+    public function getLocked(){
+        return $this->locked;
+    }
+
+    public function setLocked($locked){
+        if (!$locked) {
+            $locked = "no";
+        }
+        $this->locked = $locked;
+    }
+
+    public function getNbMessages(){
+        return $this->nbMessages;
+    }
+
+    public function setNbMessages($nbMessages){
+        $this->nbMessages = $nbMessages;
+
+        return $this;
+    }
+
 }

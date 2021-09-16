@@ -46,4 +46,21 @@ class HomeController extends AbstractController
             "messages" => $messages]
         );
     }
+
+    public function newSujet($id){
+        $categorie = $this->categorieManager->findOneById($id);
+
+        return $this->render("home/newSujet.php",
+            ["categorie" => $categorie]
+        );
+    }
+
+    public function formModifMessage($id){
+        $message = $this->messageManager->findOneById($id);
+
+        return $this->render("home/modifMessage.php",
+            ["message" => $message]
+        );
+    }
+
 }

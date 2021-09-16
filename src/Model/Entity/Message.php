@@ -2,7 +2,6 @@
 namespace App\Model\Entity;
 
 use App\Service\AbstractEntity;
-use DateTime;
 
 class Message extends AbstractEntity{
 
@@ -11,6 +10,7 @@ class Message extends AbstractEntity{
     private $createdAt;
     private $sujet;
     private $utilisateur;
+    
 
     public function __construct($data){
         parent::hydrate($data, $this);
@@ -37,8 +37,8 @@ class Message extends AbstractEntity{
         return parent::formatDate($this->createdAt);
     }
 
-    public function setCreatedAt($date){
-        $this->createdAt = new \DateTime($date);
+    public function setCreatedAt($createdAt){
+        $this->createdAt = new \DateTime($createdAt);
     }
     
     public function getSujet(){
@@ -61,4 +61,6 @@ class Message extends AbstractEntity{
     public function setUtilisateur($utilisateur){
         $this->utilisateur = $utilisateur;
     }
+
+    
 }
