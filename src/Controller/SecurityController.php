@@ -111,12 +111,14 @@ class SecurityController extends AbstractController{
 
     public function updateProfil($id){
         if(!empty($_POST)){
-            $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-            $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
             $biographie = filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_STRING);
+            // importé la donnée de l'image?
 
-            if ($username && $email && $biographie) {
-                
+            if ($biographie) {
+                if ($this->utilisateurManager->updateUtilisateur($id, $biographie)) {
+                    $this->addFlash("success", "Inscription réussie !!!");
+                    $this->redirectTo("?ctrl=security&action=profil&id=$id");
+                } 
             }
             else $this->addFlash("error", "Les champs sont obligatoires");
         }

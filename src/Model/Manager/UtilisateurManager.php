@@ -22,7 +22,7 @@ class UtilisateurManager extends AbstractManager{
             "SELECT id, username, email, createdAt, role, biographie
             FROM utilisateur
             WHERE id = :id",
-            ["id" => $id]
+            [":id" => $id]
         );
     }
 
@@ -83,15 +83,13 @@ class UtilisateurManager extends AbstractManager{
             ]);
     }
 
-    public function updateUtilisateur($id, $username, $email, $biographie){
+    public function updateUtilisateur($id, $biographie){
         return $this->executeQuery(
             "UPDATE utilisateur 
-            SET username = :username, email = :email, biographie = :biographie
+            SET biographie = :biographie
             WHERE id = :id",
             [
                 ":id" => $id,
-                ":username" => $username,
-                ":email" => $email,
                 ":biographie" => $biographie
             ]
         );

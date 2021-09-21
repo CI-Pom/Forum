@@ -11,6 +11,7 @@ class Utilisateur extends AbstractEntity{
     private $createdAt;
     private $role;
     private $biographie;
+    private $avatar;
 
     
     public function __construct($data){
@@ -70,6 +71,15 @@ class Utilisateur extends AbstractEntity{
 
     public function setBiographie($biographie){
         $this->biographie = $biographie;
+        return $this;
+    }
+
+    public function getAvatar(){
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar){
+        $this->avatar = $avatar;
         return $this;
     }
 }
