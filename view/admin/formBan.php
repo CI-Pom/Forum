@@ -19,5 +19,5 @@
         <input type="date" name="dateFin" id="">
     </p>
     <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
-    <input type="submit" value="Bannir">
+    <input type="submit" value="Bannir" class="button">
 </form>

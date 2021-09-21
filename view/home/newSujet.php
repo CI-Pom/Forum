@@ -17,5 +17,5 @@
             <textarea name="text" id="" cols="30" rows="10" required></textarea>
         </p>
         <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
-        <input type="submit" value="Ajouter">
+        <input type="submit" value="Ajouter" class="button">
 </form>

@@ -10,5 +10,5 @@
         <textarea name="text" id="" cols="30" rows="10" required><?= $message->getText() ?></textarea>
     </p>
     <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
-    <input type="submit" value="Modifier">
+    <input type="submit" value="Modifier" class="button">
 </form>

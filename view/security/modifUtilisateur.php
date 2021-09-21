@@ -14,5 +14,5 @@
         <input type="file" name="avatar" id="" accept="image/png, image/jpeg">
     </p> -->
     <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
-    <input type="submit" value="Modifier">
+    <input type="submit" value="Modifier" class="button">
 </form>

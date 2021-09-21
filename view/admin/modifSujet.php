@@ -19,5 +19,5 @@
         </select>  
     </p>
     <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
-    <input type="submit" value="Déplacer">
+    <input type="submit" value="Déplacer" class="button">
 </form>

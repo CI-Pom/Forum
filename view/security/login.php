@@ -10,6 +10,6 @@
     </p>
     <input type="hidden" name="crsf_token" value="<?= $csrf_token ?>">
     <p>
-        <input type="submit" value="Connexion">
+        <input type="submit" value="Connexion" class="button">
     </p>
 </form>

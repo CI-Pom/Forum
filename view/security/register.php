@@ -16,6 +16,6 @@
     </p>
     <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     <p>
-        <input type="submit" value="Inscription">
+        <input type="submit" value="Inscription" class="button">
     </p>
 </form>

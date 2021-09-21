@@ -15,20 +15,20 @@
     <div id="wrapper">
         <header>
             <nav>
-                <a href="index.php">Accueil</a>
-                <a href="?ctrl=home&action=listCategories">Forum</a>
-                <?php
-                if(Session::getUser()){ ?>
-                    <a href="?ctrl=security&action=profil&id=<?= Session::getUser()->getId() ?>">Profil</a>
-                    <a href="?ctrl=security&action=logout">Déconnexion</a>
-                <?php } else {
-                    ?>
-                    <a href="?ctrl=security&action=login">Connexion</a>
-                    <a href="?ctrl=security&action=register">Inscription</a>
-                <?php } 
-                if (Session::isRoleUser("ROLE_ADMIN") || Session::isRoleUser("ROLE_MODO")) { ?>
-                        <a href="?ctrl=admin">Admin</a>
-                <?php } ?>
+                    <a href="index.php" class="lienNav">Accueil</a>
+                    <a href="?ctrl=home&action=listCategories" class="lienNav">Forum</a>
+                    <?php
+                    if(Session::getUser()){ ?>
+                        <a href="?ctrl=security&action=profil&id=<?= Session::getUser()->getId() ?>" class="lienNav">Profil</a>
+                        <a href="?ctrl=security&action=logout" class="lienNav">Déconnexion</a>
+                    <?php } else {
+                        ?>
+                        <a href="?ctrl=security&action=login" class="lienNav">Connexion</a>
+                        <a href="?ctrl=security&action=register" class="lienNav">Inscription</a>
+                    <?php } 
+                    if (Session::isRoleUser("ROLE_ADMIN") || Session::isRoleUser("ROLE_MODO")) { ?>
+                        <a href="?ctrl=admin" class="lienNav">Admin</a>
+                    <?php } ?>
             </nav>
         </header>
         <section>
